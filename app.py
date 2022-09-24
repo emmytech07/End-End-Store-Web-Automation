@@ -21,4 +21,4 @@ for product in products:
     # print(price)
     # content = product.find_element(By.XPATH, value='./div/p').text
     # print(content)
-    
+driver.find_element(By.XPATH, value="//a[@class='nav-link btn btn-primary']").click()
