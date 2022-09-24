@@ -28,5 +28,10 @@ driver.find_element(By.XPATH, value="//a[@class='nav-link btn btn-primary']").cl
 driver.find_element(By.CSS_SELECTOR, value="button[class='btn btn-success']").click()
 driver.find_element(By.XPATH, value="//input[@id='country']").send_keys('ind')
 wait =WebDriverWait(driver, 10)
-wait.until(EC.presence_of_all_elements_located(By.LINK_TEXT,"India"))
+wait.until(EC.presence_of_all_elements_located((By.LINK_TEXT,"India")))
 driver.find_element(By.LINK_TEXT, "India").click()
+driver.find_element(By.CSS_SELECTOR, value='div[class="checkbox checkbox-primary"]').click()
+driver.find_element(By.CSS_SELECTOR, value='input[type=submit]').click()
+driver.implicitly_wait(5)
+successText = driver.find_element(By.CLASS_NAME, "alert-success").text
+assert "Success! Thank you!" in successText 
