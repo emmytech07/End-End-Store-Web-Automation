@@ -2,10 +2,13 @@ from selenium import webdriver
 
 from selenium.webdriver.chrome.service import Service 
 from selenium.webdriver.common.by import By
-driver = webdriver.Chrome('./chromedriver')
+from selenium.webdriver.support.ui import WebDriverWait
+from selenium.webdriver.support import expected_conditions as EC
 
-driver.get("http://www.rahulshettyacademy.com/angularpractice/")
+driver = webdriver.Chrome('./chromedriver')
 driver.fullscreen_window()
+driver.get("http://www.rahulshettyacademy.com/angularpractice/")
+driver.implicitly_wait(5)
 # //a[@href="/angularpractice/shop"] Xpath
 # //a[text()="Shop"] Xpath
 # a[href*="shop"] CSS selector
@@ -22,3 +25,8 @@ for product in products:
     # content = product.find_element(By.XPATH, value='./div/p').text
     # print(content)
 driver.find_element(By.XPATH, value="//a[@class='nav-link btn btn-primary']").click()
+driver.find_element(By.CSS_SELECTOR, value="button[class='btn btn-success']").click()
+driver.find_element(By.XPATH, value="//input[@id='country']").send_keys('ind')
+wait =WebDriverWait(driver, 10)
+wait.until(EC.presence_of_all_elements_located(By.LINK_TEXT,"India"))
+driver.find_element(By.LINK_TEXT, "India").click()
