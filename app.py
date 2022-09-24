@@ -15,8 +15,10 @@ for product in products:
 # //div[@class="card h-100"]/div/h4/a for X path
     productName = product.find_element(By.XPATH, value='./div/h4/a').text
     # print(productName)
-    price = product.find_element(By.XPATH, value='./div/h5').text
+    if productName== 'iphone X':
+        product.find_element(By.XPATH, value='./div/button').click()
+    # price = product.find_element(By.XPATH, value='./div/h5').text
     # print(price)
-    content = product.find_element(By.XPATH, value='./div/p').text
+    # content = product.find_element(By.XPATH, value='./div/p').text
     # print(content)
     
