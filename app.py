@@ -35,4 +35,5 @@ driver.find_element(By.CSS_SELECTOR, value='input[type=submit]').click()
 driver.implicitly_wait(5)
 successText = driver.find_element(By.CLASS_NAME, "alert-success").text
 assert "Success! Thank you!" in successText 
+print('successful')
 driver.quit()
